@@ -26,6 +26,14 @@ target_time = target_time.replace(hour=3, minute=0, second=0, microsecond=0)
 
 def main():
     url = input("请输入网址:")
+
+    # 第三方 SMTP 服务
+    user_name = input("请输入您的昵称:")
+    mail_user = input("请输入您的QQ邮箱:")  # 用户名
+    mail_pass = input("请输入口令:")  # 口令,注意这里的口令是需要到QQ邮箱中开启pop、smtp服务后，qq生成的授权码
+
+    receiver = input("请输入接收者邮箱:")  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+
     # 打开网页
     driver.get(url)
     # 最大化窗口
@@ -47,7 +55,7 @@ def main():
             zip_path = dir_path + ".zip"
             zip_files(dir_path, zip_path)
             # 发送文件夹
-            send_zip(zip_path)
+            send_zip(zip_path, user_name, mail_user, mail_pass, receiver)
             break
 
         # 设立图片名称为截图时间
@@ -65,7 +73,7 @@ def main():
             create_folder(dir_path)  # 创建文件夹
 
             # 发送文件夹
-            send_zip(zip_path)
+            send_zip(zip_path, user_name, mail_user, mail_pass, receiver)
             i = 0  # 重新开始计数
 
         time.sleep(25)
