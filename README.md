@@ -1,5 +1,9 @@
 # Python_web_screenshoot
 按照客户要求，此项目的作用是在指定时间内，每隔一定时间访问指定网站并截图。将截图放在指定文件夹中，到达一定数量后压缩为.zip文件并发送给用户邮箱中
+技术栈：
+1、python + selenium 浏览器操作
+2、python + zipfile 文件操作（创建文件、压缩文件夹）
+3、smtplib邮箱，邮件发送
 
 此项目使用Edge浏览器驱动（已经一同放在文件中）注意版本
 点击Edge浏览器右上角的三点->帮助与反馈->关于Miscroft Edge
